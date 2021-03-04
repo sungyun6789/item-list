@@ -1,46 +1,14 @@
-# Getting Started with Create React App
+### 문제 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+< 2000개 이상의 grid list 구현하기 >
 
-## Available Scripts
+당신은 보호소에 있는 고양이들을 보여주는 사이트를 만들게 되었습니다.
+삭제 버튼을 눌렀을 시 리스트에서 카드가 제거됩니다.
+중간 중간 "사지말고 입양하세요" 라는 광고 카드가 들어가야 합니다. (일반 카드가 5개 이상 20개 이하 그려졌을 때 마다 랜덤으로 그려집니다.)
+header는 스크롤을 내리면 사라지고, 스크롤을 위로 올리면 나타납니다. (동영상을 참고해주세요.)
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React + Typescript를 이용해주세요.
+- 라이브러리 / 검색 등 제한은 없습니다.
+- 주어진 이미지 / 동영상과 최대한 똑같이 구현해주세요.
+- 실 서비스에 사용될 웹이라고 가정하시고 개발해주세요.
+- responsive ui 및 performance를 고려해주세요.
