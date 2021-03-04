@@ -1,0 +1,20 @@
+.item {
+  .item-container {
+    display: flex;
+  }
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 30px 10px;
+
+  img {
+    width: 200px;
+    height: 130px;
+  }
+
+  button {
+    float: right;
+  }
+}
