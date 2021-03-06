@@ -2,26 +2,25 @@ import React from "react";
 import "../styles/ItemList.scss";
 import data from "../dummy.json";
 
-// const Item = () => data.map((e) => <div>{e.name}</div>);
-
 const ItemList = () => {
+  const onClick = () => console.log("삭제");
+
   const list = data.map((e) => (
     <div key={e._id} className="box">
-      <span>
-        <img src={e.imageUrl} />
-        <p>{e.gender}이다</p>
-      </span>
-      <div>{e.name}</div>
-      <span>{e.age}살 입니다</span>
-      <button>삭제</button>
+      <img src={e.imageUrl} className="img-box" />
+      {/* <span className="img-text">{e.gender}</span> */}
+      <h3 className="name">{e.name}</h3>
+      <span className="age">{e.age}살 입니다</span>
+      <div className="button-box">
+        <button onClick={onClick}>삭제</button>
+      </div>
     </div>
   ));
 
   return (
     <div className="item">
-      <div className="item-container">
-        <div>{list}</div>
-      </div>
+      <h4>안녕하세요! 관리자님!</h4>
+      <div className="item-container">{list}</div>
     </div>
   );
 };
