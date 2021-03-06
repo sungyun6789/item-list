@@ -3,7 +3,7 @@ import "../styles/ItemList.scss";
 import data from "../dummy.json";
 
 const ItemList = () => {
-  const removeClick = (e: any) => {
+  const removeClick = (e: React.MouseEvent) => {
     console.log(e);
   };
 
@@ -14,7 +14,6 @@ const ItemList = () => {
         {data.map((item) => (
           <div key={item._id} className="box">
             <img src={item.imageUrl} className="img-box" alt="고양이" />
-            {/* <span className="img-text">{e.gender}</span> */}
             <h3 className="name">{item.name}</h3>
             <span className="age">{item.age}살 입니다</span>
             <div className="button-box">
