@@ -9,16 +9,22 @@ const ItemList = () => {
     setList(list.filter((data) => data._id !== e.currentTarget.value));
   };
 
+  const randomNum = Math.random() * 20;
+  const randomNumFloor = Math.floor(randomNum);
+  console.log(randomNumFloor);
+
   useEffect(() => console.log(list), [list]);
 
   return (
     <>
       <div className="item">
-        <h4>안녕하세요! 관리자님!</h4>
+        <header>
+          <h4>안녕하세요! 관리자님!</h4>
+        </header>
         <div className="item-container">
           {list.map((item) => (
             <div key={item._id} className="box">
-              <img src={item.imageUrl} className="img-box" alt="고양이" />
+              <img src={item.imageUrl} alt="고양이" />
               <h3 className="name">{item.name}</h3>
               {item.gender === "female" ? (
                 <span className="img-text">암컷이다냥</span>

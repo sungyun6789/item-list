@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 500px;
+    margin-top: 60px;
   }
 }
 
@@ -11,12 +12,12 @@
   box-shadow: 0px 2px 0px 0px #e0e0e0;
   background-color: white;
   border-radius: 10px;
-  width: 200px;
-  height: 185px;
+  width: 180px;
+  height: 200px;
   margin: 10px 5px;
 
   img {
-    width: 200px;
+    width: 180px;
     height: 100px;
     border-radius: 10px 10px 0px 0px;
   }
@@ -24,7 +25,8 @@
   .button-box {
     display: flex;
     flex-direction: row-reverse;
-    margin-right: 15px;
+    margin-top: 10px;
+    margin-right: 20px;
 
     button {
       border: 1px solid red;
@@ -37,13 +39,13 @@
   .img-text {
     color: white;
     position: absolute;
-    top: 45%;
-    left: 65%;
+    top: 40%;
+    left: 60%;
   }
 }
 
 .name {
-  margin: 5px 20px 0px 20px;
+  margin: 10px 0px 0px 20px;
 }
 
 .age {
@@ -53,5 +55,18 @@
 }
 
 h4 {
-  margin: 30px 10px 10px;
+  margin: 15px 10px 5px;
+}
+
+header {
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  width: 400px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
