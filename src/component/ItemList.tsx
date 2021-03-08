@@ -2,9 +2,17 @@ import React, { useEffect, useState, useCallback } from "react";
 import "../styles/ItemList.scss";
 import data from "../data.json";
 
+interface ItemTypes {
+  _id: string;
+  imageUrl: string;
+  age: number;
+  name: string;
+  gender: string;
+}
+
 const ItemList = () => {
   const [itemIndex, setItemIndex] = useState(0);
-  const [result, setResult] = useState(data.slice(0, 20));
+  const [result, setResult] = useState<any>(data.slice(0, 20));
 
   const infiniteScroll = useCallback(() => {
     let scrollHeight = Math.max(
@@ -24,13 +32,27 @@ const ItemList = () => {
   }, [itemIndex, result]);
 
   const removeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setResult(result.filter((data) => data._id !== e.currentTarget.value));
+    setResult(
+      result.filter((data: ItemTypes) => data._id !== e.currentTarget.value)
+    );
   };
 
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll, true);
     return () => window.removeEventListener("scroll", infiniteScroll, true);
   }, [result, infiniteScroll]);
+
+  // random div 미완
+  const addRandomBox = () => {
+    const randomIndex = Math.random() * 15 + 5;
+    while (randomIndex < result.length) {
+      result.splice(
+        randomIndex,
+        0,
+        <div className="randomBox">사지말고 입양하세요</div>
+      );
+    }
+  };
 
   return (
     <>
@@ -39,8 +61,9 @@ const ItemList = () => {
           <h4>안녕하세요! 관리자님!</h4>
         </header>
         <div className="item-container">
-          {result.map((item) => (
+          {result.map((item: ItemTypes) => (
             <div key={item._id} className="box">
+              {addRandomBox}
               <img src={item.imageUrl} alt="고양이" />
               <h3 className="name">{item.name}</h3>
               {item.gender === "female" ? (
