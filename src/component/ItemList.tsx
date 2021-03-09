@@ -15,6 +15,8 @@ const ItemList = () => {
   const [result, setResult] = useState<any>(data.slice(0, 20));
   const [index, setIndex] = useState<number>(Math.floor(Math.random() * 15 + 5));
 
+  const randomIndex = () => Math.floor(Math.random() * 15 + 5);
+
   const infiniteScroll = useCallback(() => {
     let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
     let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
@@ -27,8 +29,8 @@ const ItemList = () => {
   }, [itemIndex, result]);
 
   const RandomBox = () => {
-    result.splice(index, 0, <div></div>);
-    setIndex(index + result.length);
+    result.splice(index, 0, <React.Fragment></React.Fragment>);
+    setIndex(index + randomIndex());
   };
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const ItemList = () => {
                 <p>사지 말고 입양 하세요!</p>
               </div>
             ) : (
-              <>
+              <React.Fragment>
                 <img src={item.imageUrl} alt="고양이" />
                 <h3 className="name">{item.name}</h3>
                 {item.gender === 'female' ? (
@@ -68,7 +70,7 @@ const ItemList = () => {
                     삭제
                   </button>
                 </div>
-              </>
+              </React.Fragment>
             )}
           </div>
         ))}
