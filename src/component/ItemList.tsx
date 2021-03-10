@@ -12,28 +12,30 @@ interface ItemTypes {
 
 const ItemList = () => {
   const [itemIndex, setItemIndex] = useState<number>(0);
-  const [result, setResult] = useState<any>(data.slice(0, 20));
+  const [result, setResult] = useState<ItemTypes[]>(data.slice(0, 20));
   const [index, setIndex] = useState<number>(Math.floor(Math.random() * 15 + 5));
 
-  const randomIndex = () => Math.floor(Math.random() * 15 + 5);
+  const randomIndex = () => setIndex(Math.floor(Math.random() * 15 + 5) + index);
 
   const infiniteScroll = useCallback(() => {
-    let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-    let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-    let clientHeight = Math.max(document.documentElement.clientHeight);
+    const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
+
+    Math.max(scrollHeight, document.body.scrollHeight);
+    Math.max(scrollTop, document.body.scrollTop);
+    Math.max(clientHeight);
 
     if (scrollTop + clientHeight === scrollHeight) {
       setItemIndex(itemIndex + 20);
-      setResult(result.concat(data.slice(itemIndex + 20, itemIndex + 40)));
+      setResult([...result, ...data.slice(itemIndex + 20, itemIndex + 40)]);
     }
   }, [itemIndex, result]);
 
   const RandomBox = () => {
-    result.splice(index, 0, <React.Fragment></React.Fragment>);
-    setIndex(index + randomIndex());
+    result.splice(index, 0);
   };
 
   useEffect(() => {
+    randomIndex();
     RandomBox();
     window.addEventListener('scroll', infiniteScroll, true);
     return () => window.removeEventListener('scroll', infiniteScroll, true);
@@ -53,7 +55,7 @@ const ItemList = () => {
           <div key={item._id} className="box">
             {item.name === undefined ? (
               <div className="randomBox">
-                <p>사지 말고 입양 하세요!</p>
+                <p>사지 말고 입양하세요!</p>
               </div>
             ) : (
               <React.Fragment>
