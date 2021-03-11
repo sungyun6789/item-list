@@ -12,10 +12,12 @@ interface ItemTypes {
 
 const ItemList = () => {
   const [itemIndex, setItemIndex] = useState<number>(0);
-  const [result, setResult] = useState<ItemTypes[]>(data.slice(0, 20));
-  const [index, setIndex] = useState<number>(Math.floor(Math.random() * 15 + 5));
+  const [result, setResult] = useState<ItemTypes[] | any>(data.slice(0, 20));
+  const [index, setIndex] = useState(Math.floor(Math.random() * 15 + 5));
 
-  const randomIndex = () => setIndex(Math.floor(Math.random() * 15 + 5) + index);
+  const randomIndex = () => {
+    setIndex(index + Math.floor(Math.random() * 15 + 5));
+  };
 
   const infiniteScroll = useCallback(() => {
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
@@ -30,9 +32,7 @@ const ItemList = () => {
     }
   }, [itemIndex, result]);
 
-  const RandomBox = () => {
-    result.splice(index, 0);
-  };
+  const RandomBox = () => result.splice(index, 0, <React.Fragment></React.Fragment>);
 
   useEffect(() => {
     randomIndex();
